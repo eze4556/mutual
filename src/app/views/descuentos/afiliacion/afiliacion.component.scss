@@ -1,0 +1,22 @@
+.description {
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+}
+
+.download-card {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  font-size: 40px;
+  color: var(--ion-color-primary);
+  display: block;
+  margin: 0 auto 10px;
+}
+  ion-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
