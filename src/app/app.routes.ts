@@ -34,6 +34,10 @@ export const routes: Routes = [
     loadComponent: () => import('./views/seguros/seguros.component').then((m) => m.SegurosComponent),
   },
 
+ {
+    path: 'juridico',
+    loadComponent: () => import('./views/gabinete-juridico/gabinete-juridico.component').then((m) => m.GabineteJuridicoComponent),
+  },
 
   {
     path: '',
