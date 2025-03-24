@@ -17,6 +17,22 @@ export const routes: Routes = [
     path: 'afiliacion',
     loadComponent: () => import('./views/descuentos/afiliacion/afiliacion.component').then((m) => m.AfiliacionComponent),
   },
+ {
+    path: 'servicios',
+    loadComponent: () => import('./views/service-card/service-card.component').then((m) => m.ServiceCardComponent),
+  },
+ {
+    path: 'financiar',
+    loadComponent: () => import('./views/financiar/financiar.component').then((m) => m.FinanciarComponent),
+  },
+  {
+    path: 'salud',
+    loadComponent: () => import('./views/salud/salud.component').then((m) => m.SaludComponent),
+  },
+ {
+    path: 'seguros',
+    loadComponent: () => import('./views/seguros/seguros.component').then((m) => m.SegurosComponent),
+  },
 
 
   {
