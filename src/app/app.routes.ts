@@ -39,6 +39,11 @@ export const routes: Routes = [
     loadComponent: () => import('./views/gabinete-juridico/gabinete-juridico.component').then((m) => m.GabineteJuridicoComponent),
   },
 
+ {
+    path: 'perfil',
+    loadComponent: () => import('./views/profile/profile.component').then((m) => m.ProfileComponent),
+  },
+
   {
     path: '',
     redirectTo: 'home',
