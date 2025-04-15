@@ -1,17 +1,86 @@
+ion-toolbar.navbar {
+  --background: #7FB8DA;
+  --min-height: 65px;
+  height: 65px;
+}
+
+.header-title {
+  color: white;
+  font-weight: bold;
+}
+
+ion-icon[color="light"] {
+  color: white;
+}
+
+.discount-banner {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: white; /* o cualquier fondo */
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .discount-banner img {
   width: 100%;
-  border-radius: 10px;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Botones personalizados */
+.button-list {
+  padding: 0 4vw;
+}
+
+.custom-button {
+  --background: #7FB8DA;
+  --color: white;
+  --border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .affiliation-card {
-  text-align: center;
-  padding: 15px;
   background: #f4f4f4;
-  border-radius: 10px;
-  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 5vw auto;
+  width: 90%;
+  max-width: 500px;
 }
 
-.affiliation-card img {
-  width: 100px;
-  margin-bottom: 10px;
+.affiliation-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: white; /* color de fondo para cuando la imagen no llena todo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.affiliation-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.affiliation-content {
+  padding: 16px;
+  text-align: center;
+}
+
+
+/* Adaptabilidad */
+@media (min-width: 768px) {
+  .discount-banner {
+    height: 200px;
+  }
+
+  .affiliation-image {
+    height: 200px;
+  }
 }

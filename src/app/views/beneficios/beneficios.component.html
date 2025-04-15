@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar class="navbar">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="arrow-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="header-title">Beneficios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content">
+
+  <p class="intro-text">
+    Afiliarte a AMTA (Asociación Mutual de Taxistas Argentinos) te brinda acceso a una amplia gama de beneficios diseñados para mejorar tu calidad de vida y la de tu familia.
+  </p>
+
+  <h2 class="section-title dark-blue">Beneficios</h2>
+
+  <div class="benefit-carousel">
+    <div class="carousel-scroll">
+      <ion-card class="carousel-card" *ngFor="let beneficio of beneficios">
+        <div class="benefit-content">
+          <h3>{{ beneficio.titulo }}</h3>
+          <p>{{ beneficio.descripcion }}</p>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+
+
+  <h2 class="section-title dark-blue">Lo que lográs al afiliarte</h2>
+
+  <div class="grid grid-cols-1 gap-4">
+    <ion-card class="benefit-card">
+      <ion-icon name="shield-checkmark" class="benefit-icon"></ion-icon>
+      <div class="benefit-content">
+        <h3>Seguridad y tranquilidad</h3>
+        <p>Asegura el bienestar de tu familia con acceso a servicios asistenciales y descuentos que hacen la vida más asequible.</p>
+      </div>
+    </ion-card>
+
+    <ion-card class="benefit-card">
+      <ion-icon name="people" class="benefit-icon"></ion-icon>
+      <div class="benefit-content">
+        <h3>Protección</h3>
+        <p>Mantené a tu familia protegida con atención médica y servicios de calidad siempre a tu alcance.</p>
+      </div>
+    </ion-card>
+
+    <ion-card class="benefit-card">
+      <ion-icon name="construct" class="benefit-icon"></ion-icon>
+      <div class="benefit-content">
+        <h3>Comodidad y eficiencia</h3>
+        <p>Simplificá tu día con herramientas digitales que facilitan la gestión de tus necesidades.</p>
+      </div>
+    </ion-card>
+  </div>
+
+  <p class="final-text">
+    Afiliarte a AMTA significa más que acceder a beneficios; es garantizar tranquilidad, seguridad y una mejor calidad de vida para vos y los tuyos.
+  </p>
+
+  <ion-button class="afiliate-button" expand="block">Afiliarme</ion-button>
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar>
+    <ion-tab-button tab="inicio">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="afiliacion">
+      <ion-icon name="star"></ion-icon>
+      <ion-label>Afiliación</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="seguro">
+      <ion-icon name="car"></ion-icon>
+      <ion-label>Seguro</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

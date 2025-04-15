@@ -6,14 +6,14 @@
 export const environment = {
   production: false,
   firebase: {
-  apiKey: "AIzaSyBmJekwjNxxRIZWjcMGZ_mo1YsylAmjm9I",
-  authDomain: "fir-9e48c.firebaseapp.com",
-  databaseURL: "https://fir-9e48c-default-rtdb.firebaseio.com",
-  projectId: "fir-9e48c",
-  storageBucket: "fir-9e48c.appspot.com",
-  messagingSenderId: "777260892349",
-  appId: "1:777260892349:web:94502f880d976fa9beb7d4",
-  measurementId: "G-Z2EQMMVW7C"
+    apiKey: "AIzaSyDOV0_TrEFns6Ci9swe_8DtSoEwoy0ffkM",
+    authDomain: "inawin-303e7.firebaseapp.com",
+    databaseURL: "https://inawin-303e7-default-rtdb.firebaseio.com",
+    projectId: "inawin-303e7",
+    storageBucket: "inawin-303e7.appspot.com",
+    messagingSenderId: "910283475839",
+    appId: "1:910283475839:web:382d619f50b6d79b9ae84a",
+    measurementId: "G-VM9ZSEMZK6"
 },
 };
 /*

@@ -1,75 +1,107 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>AMTA</ion-title>
+  <ion-toolbar class="navbar">
+    <ion-title>
+      <img
+        src="../../assets/icon/sinfondo1.png"
+        alt="App Logo"
+        class="navbar-logo"
+      />
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <!-- Banner principal -->
-  <div class="banner">
-    <div class="banner-content">
-      <h2>Protección y beneficio para vos y tu familia</h2>
-      <ion-button expand="full" color="primary">Afiliarme</ion-button>
-    </div>
+<div class="banner" *ngIf="bannerImage">
+  <img [src]="bannerImage" alt="Banner Background" class="banner-image" />
+  <div class="banner-content">
+    <h2>Protección y beneficio para vos y tu familia</h2>
+    <p>¡Afiliate hoy a nuestra mutual!</p>
+    <ion-button expand="block" color="primary">Afiliarme</ion-button>
   </div>
+</div>
 
   <div class="welcome-text">
-    <p>¡Bienvenido a AMTA! Descubre cómo nuestra mutual puede ayudarte a proteger a tu familia y mejorar tu calidad de vida.</p>
+    <h2>¡Bienvenido a AMTA!</h2>
+    <p>
+      Descubre cómo nuestra mutual puede ayudarte
+    </p>
+    <p>a proteger a tu familia y mejorar tu calidad de vida.</p>
   </div>
 
-  <!-- Grid de opciones -->
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card>
-          <img src="../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" />
-          <ion-card-content>Servicios</ion-card-content>
+  <div class="cards-grid">
+    <div class="card-row">
+      <div class="card-wrapper">
+        <ion-card class="custom-card">
+          <img [src]="serviciosImage" />
+          <ion-card-content>
+            <h3 class="card-title">Servicios</h3>
+            <p class="card-subtitle">Descubre todos los servicios</p>
+          </ion-card-content>
         </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card>
-          <img src="../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" />
-          <ion-card-content>Beneficios</ion-card-content>
+      </div>
+      <div class="card-wrapper">
+        <ion-card class="custom-card">
+          <img [src]="beneficiosImage" />
+          <ion-card-content>
+            <h3 class="card-title">Beneficios</h3>
+            <p class="card-subtitle">Aprovecha los beneficios exclusivos</p>
+          </ion-card-content>
         </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card>
-                    <img src="../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" />
+      </div>
+    </div>
 
-          <ion-card-content>Institucional</ion-card-content>
+    <div class="card-row">
+      <div class="card-wrapper">
+        <ion-card class="custom-card">
+          <img [src]="descuentosImage" />
+          <ion-card-content>
+            <h3 class="card-title">Descuentos</h3>
+            <p class="card-subtitle">Explora descuentos especiales</p>
+          </ion-card-content>
         </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card>
-                    <img src="../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" />
-
-          <ion-card-content>Descuentos</ion-card-content>
+      </div>
+      <div class="card-wrapper">
+        <ion-card class="custom-card">
+          <img [src]="institucionalImage" />
+          <ion-card-content>
+            <h3 class="card-title">Institucional</h3>
+            <p class="card-subtitle">Conoce nuestra historia</p>
+          </ion-card-content>
         </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <!-- Sección de asistencia -->
-  <div class="assistance">
-    <ion-button expand="block" color="secondary">Urgencias y Denuncias</ion-button>
-    <ion-button expand="block" color="tertiary">Asistencia por WhatsApp</ion-button>
-  </div>
-
-
-  <div class="credencial-container">
-          <img src="../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" />
-    <div class="credencial-text">
-      <h3>Tené siempre a mano tu <span class="resaltado">Credencial Digital</span></h3>
-      <ul>
-        <li>Práctica y segura.</li>
-        <li>Amigable con el medio ambiente.</li>
-        <li>Úsala sin conexión.</li>
-        <li>Tené las credenciales de tu grupo familiar y podés compartirlas.</li>
-      </ul>
+      </div>
     </div>
   </div>
+
+
+
+
+<!-- Asistencia -->
+<div class="assistance-section" *ngIf="assistanceList.length > 0">
+  <div class="assistance-item" *ngFor="let item of assistanceList">
+    <ion-icon [name]="item.type === 'whatsapp' ? 'logo-whatsapp' : 'call'" class="assistance-icon"></ion-icon>
+    <div class="assistance-text">
+      <p class="assistance-title">{{ item.title }}</p>
+      <p class="assistance-phone">{{ item.phone }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Credencial -->
+<div class="credencial-container" *ngIf="credentialImage">
+  <img [src]="credentialImage" />
+  <div class="credencial-text">
+    <h3>Tené siempre a mano tu <span class="resaltado">Credencial Digital</span></h3>
+    <ul>
+      <li>Práctica y segura.</li>
+      <li>Amigable con el medio ambiente.</li>
+      <li>Úsala sin conexión.</li>
+      <li>Tené las credenciales de tu grupo familiar y podés compartirlas.</li>
+    </ul>
+  </div>
+</div>
+
 
   <!-- Texto de Afiliación -->
   <div class="afiliacion-texto">
@@ -77,20 +109,10 @@
     <p>¡Afiliate hoy a AMTA!</p>
   </div>
 
-   <!-- Botón de Afiliación -->
+  <!-- Botón de Afiliación -->
   <ion-button expand="block" color="primary">
     <ion-icon name="person-add-outline"></ion-icon> Afiliarme
   </ion-button>
-
-
-
-
-
-
-
-
-
-
 </ion-content>
 
 <ion-footer>

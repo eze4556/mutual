@@ -1,0 +1,122 @@
+ion-toolbar.navbar {
+  --background: #7FB8DA;
+  --min-height: 65px;
+  height: 65px;
+}
+
+.header-title {
+  color: white;
+  font-weight: bold;
+}
+
+.page-content {
+  --background: #ffffff;
+  padding: 16px;
+}
+
+.dark-blue {
+  color: #005792; // Azul oscuro (referencia visual)
+}
+
+.dark-blue-bg {
+  background-color: #005792;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.intro-text {
+  text-align: center;
+  color: #333;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-carousel {
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 1rem;
+}
+
+.carousel-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-card {
+  width: 280px; // ancho fijo para que todas se alineen
+  height: 120px; // altura fija para cuadrar mejor la card
+  flex: 0 0 auto;
+  background: #f9f9f9;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  scroll-snap-align: start;
+
+  // Centramos todo el contenido de la card
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.benefit-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-icon {
+  font-size: 24px;
+  color: #005792;
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-content h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #005792;
+}
+
+
+.benefit-content p {
+  margin: 4px 0 0 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+
+
+.final-text {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #444;
+  padding: 0 8px;
+}
+
+.afiliate-button {
+  --background: #005792;
+  color: white;
+  width: 100%;
+  margin-bottom: 2rem;
+}

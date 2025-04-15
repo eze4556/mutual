@@ -313,4 +313,41 @@ async deleteLeatherStrap(id: string): Promise<void> {
   }
 
 
+  // Obtener todos los ítems
+  async getAssistanceItems(): Promise<any[]> {
+    const subCollectionRef = collection(this.firestore, 'home', 'homeData', 'assistance');
+    const querySnapshot = await getDocs(subCollectionRef);
+    return querySnapshot.docs.map((doc) => doc.data());
+
+  }
+
+    // Obtener las secciones del grid. Si se pasa un título, devuelve solo esa sección
+    async getGridSections(sectionTitle?: string): Promise<any> {
+      const docRef = doc(this.firestore, 'home/grid');
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        return sectionTitle ? data[sectionTitle] : data;
+      }
+
+      return null;
+    }
+
+
+      // Obtener todos los documentos de una subcolección
+  async getSubCollectionItems(parentCollection: string, subCollection: string): Promise<any[]> {
+    const subCollectionRef = collection(this.firestore, `${parentCollection}/${subCollection}`);
+    const querySnapshot = await getDocs(subCollectionRef);
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  }
+
+    // Obtener un documento individual dentro de una subcolección
+    async getSubCollectionItem(parentCollection: string, subCollectionPath: string): Promise<any> {
+      const docRef = doc(this.firestore, `${parentCollection}/${subCollectionPath}`);
+      const docSnap = await getDoc(docRef);
+      return docSnap.exists() ? docSnap.data() : null;
+    }
+
+
 }

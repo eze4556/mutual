@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Documentos para tu Afiliación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <p class="description">
+    Descarga el formulario correspondiente para afiliarte a la mutual u obra social.
+  </p>
+
+  <ion-card >
+    <ion-card-content>
+      <ion-icon name="handshake-outline" class="icon"></ion-icon>
+      <ion-button expand="block" color="primary" fill="outline">
+        Descargar formulario de Afiliación a la Mutual
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card >
+    <ion-card-content>
+      <ion-icon name="handshake-outline" class="icon"></ion-icon>
+      <ion-button expand="block" color="primary" fill="outline">
+        Descargar formulario de Afiliación a la Mutual + Obra Social
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-label position="floating">DNI</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Subir formulario</ion-label>
+    <ion-button slot="end">
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-button expand="block" color="primary">Continuar</ion-button>
+</ion-content>
+<ion-footer>
+  <ion-tab-bar>
+    <ion-tab-button tab="inicio">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="afiliacion">
+      <ion-icon name="star"></ion-icon>
+      <ion-label>Afiliación</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="seguro">
+      <ion-icon name="car"></ion-icon>
+      <ion-label>Seguro</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

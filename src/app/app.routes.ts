@@ -1,6 +1,5 @@
-import { BeneficiosComponent } from './views/descuentos/beneficios/beneficios.component';
 import { Routes } from '@angular/router';
-import { DescuentosComponent } from './views/descuentos/descuentos.component';
+
 
 export const routes: Routes = [
 
@@ -15,7 +14,11 @@ export const routes: Routes = [
   },
  {
     path: 'afiliacion',
-    loadComponent: () => import('./views/descuentos/afiliacion/afiliacion.component').then((m) => m.AfiliacionComponent),
+    loadComponent: () => import('./views/afiliacion/afiliacion.component').then((m) => m.AfiliacionComponent),
+  },
+  {
+    path: 'beneficios',
+    loadComponent: () => import('./views/beneficios/beneficios.component').then((m) => m.BeneficiosComponent),
   },
  {
     path: 'servicios',

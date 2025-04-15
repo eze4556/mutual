@@ -1,42 +1,47 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar class="navbar">
     <ion-buttons slot="start">
       <ion-button>
-        <ion-icon name="arrow-back"></ion-icon>
+        <ion-icon name="arrow-back" color="light"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Descuentos</ion-title>
+    <ion-title class="header-title">Descuentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
+  <!-- Banner con tamaño fijo -->
   <div class="discount-banner">
-    <img src="../../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" alt="Afiliación" />
+    <img src="../../../assets/icon/thumb-1920-1354199.png" alt="Descuento" />
   </div>
 
-
-  <ion-list>
-    <ion-button expand="block" fill="outline">
+  <!-- Lista de botones con fondo personalizado -->
+  <ion-list class="button-list">
+    <ion-button expand="block" class="custom-button">
       <ion-icon name="home-outline" slot="start"></ion-icon> Familia
     </ion-button>
-    <ion-button expand="block" fill="outline">
+    <ion-button expand="block" class="custom-button">
       <ion-icon name="fitness-outline" slot="start"></ion-icon> Actividad física y nutrición
     </ion-button>
-    <ion-button expand="block" fill="outline">
+    <ion-button expand="block" class="custom-button">
       <ion-icon name="film-outline" slot="start"></ion-icon> Cultura y entretenimiento
     </ion-button>
-    <ion-button expand="block" fill="outline">
+    <ion-button expand="block" class="custom-button">
       <ion-icon name="medkit-outline" slot="start"></ion-icon> Farmacias
     </ion-button>
   </ion-list>
 
   <!-- Afiliación -->
   <div class="affiliation-card">
-    <img src="../../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" alt="Afiliación" />
-    <h3>¡Afíliate ahora!</h3>
-    <p>Ahorra en una amplia cantidad de marcas, tiendas y comercios al afiliarte.</p>
-    <ion-button expand="block" color="primary">Afiliarme</ion-button>
+    <div class="affiliation-image">
+      <img src="../../../assets/icon/thumb-1920-1354199.png" alt="Afiliación" />
+    </div>
+    <div class="affiliation-content">
+      <h3>¡Afíliate ahora!</h3>
+      <p>Ahorra en una amplia cantidad de marcas, tiendas y comercios al afiliarte al programa de beneficios exclusivos para los asociados.</p>
+      <ion-button expand="block" color="primary">Afiliarme</ion-button>
+    </div>
   </div>
 </ion-content>
 
@@ -52,7 +57,7 @@
     </ion-tab-button>
     <ion-tab-button tab="seguro">
       <ion-icon name="car"></ion-icon>
-      <ion-label>Seguro</ion-label>
+      <ion-label>Seguro automotor</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-footer>
