@@ -1,0 +1,134 @@
+ion-toolbar.navbar {
+  --background: #7FB8DA;
+  --min-height: 55px;
+  height: 55px;
+}
+
+.header-title {
+  color: white;
+  font-weight: bold;
+}
+
+ion-icon[color="light"] {
+  color: white;
+}
+
+
+.discount-banner {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: white; /* o cualquier fondo */
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discount-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.info-card {
+  text-align: center;
+  margin: 15px;
+  background-color: #f4f4f4;
+}
+
+
+.cta-button {
+  background-color: #007aff;
+  color: white;
+  margin-top: 10px;
+
+}
+
+.access-title {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+
+}
+
+.carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.carousel {
+  display: flex;
+  gap: 12px;
+  padding: 0 12px;
+}
+
+.access-button {
+  min-width: 140px;
+  height: 100px;
+  flex-shrink: 0;
+  background-color: #007aff;
+  color: white;
+  border: 2px solid #005bb5;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.carousel-dots {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.dot.active {
+  background: #007aff;
+}
+
+// CONTENEDOR FAQ
+.faq-container {
+  background-color: #f4f4f4;
+  padding: 16px;
+  border-radius: 12px;
+  margin: 24px 16px;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #333;
+  font-weight:bolder;
+}
+
+// Estilos del header del acordeón
+ion-accordion ion-item[slot="header"] {
+  --background: #7FB8DA;
+  --color: #222;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+// Contenido del acordeón
+ion-accordion .ion-padding {
+  background-color: white;
+  border-radius: 0 0 8px 8px;
+}

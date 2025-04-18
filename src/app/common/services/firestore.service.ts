@@ -25,6 +25,7 @@ import { Apk } from '../models/apk.model';
 import { BuckleBelt } from '../models/cinturonH.model';
 import { Buckle } from '../models/bucke.model';
 import { LeatherStrap } from '../models/lonja.model';
+import { ServicioI } from '../models/servicio.model';
 
 
 
@@ -347,6 +348,19 @@ async deleteLeatherStrap(id: string): Promise<void> {
       const docRef = doc(this.firestore, `${parentCollection}/${subCollectionPath}`);
       const docSnap = await getDoc(docRef);
       return docSnap.exists() ? docSnap.data() : null;
+    }
+
+
+
+    async getServicios(): Promise<ServicioI[]> {
+      const snap = await getDocs(collection(this.firestore, 'servicios'));
+      return snap.docs.map(doc => ({ id: doc.id, ...doc.data() })) as ServicioI[];
+    }
+
+    async getServicioById(id: string): Promise<ServicioI | null> {
+      const docRef = doc(this.firestore, `servicios/${id}`);
+      const docSnap = await getDoc(docRef);
+      return docSnap.exists() ? (docSnap.data() as ServicioI) : null;
     }
 
 

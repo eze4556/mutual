@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar class="navbar">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="arrow-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="header-title">Gabinte Jurídico</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="servicio">
+
+  <ion-card class="info-card">
+    <ion-card-content>
+      <p>{{ servicio.resumen }}</p>
+      <ion-button expand="full" class="cta-button">Empieza ahora</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Imagen tipo banner -->
+  <div class="discount-banner">
+    <img [src]="servicio.imagen2Url" [alt]="servicio.titulo" />
+  </div>
+
+  <h3 class="access-title">Obtén acceso a:</h3>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-container">
+      <div class="carousel">
+        <ion-button class="access-button" *ngFor="let cat of servicio.categorias">
+          {{ cat.nombre }}
+        </ion-button>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <div class="faq-container">
+    <h3 class="faq-title">Preguntas frecuentes sobre {{ servicio.titulo }}</h3>
+    <ion-accordion-group expand="inset">
+      <ion-accordion *ngFor="let faq of servicio.faqs" [value]="faq.pregunta">
+        <ion-item slot="header">
+          <ion-label>{{ faq.pregunta }}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          {{ faq.respuesta }}
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-tab-bar>
+    <ion-tab-button tab="inicio">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="afiliacion">
+      <ion-icon name="star"></ion-icon>
+      <ion-label>Afiliación</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="seguro">
+      <ion-icon name="car"></ion-icon>
+      <ion-label>Seguro</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="ingresar">
+      <ion-icon name="log-in-outline"></ion-icon>
+      <ion-label>ingresar</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

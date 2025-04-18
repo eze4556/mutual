@@ -1,7 +1,7 @@
 ion-toolbar.navbar {
   --background: #7FB8DA;
-  --min-height: 65px;
-  height: 65px;
+  --min-height: 55px;
+  height: 55px;
 }
 
 .header-title {
@@ -29,12 +29,17 @@ ion-toolbar.navbar {
   margin: 1rem 0;
 }
 
-.intro-text {
+.info-text {
+  background: #f4f4f4;
+  border-radius: 12px;
+  padding: 16px;
   text-align: center;
-  color: #333;
   font-size: 0.95rem;
-  margin-bottom: 1rem;
+  color: #444;
+  margin: 1rem auto;
+  max-width: 500px;
 }
+
 
 .benefit-carousel {
   overflow-x: auto;
@@ -101,17 +106,6 @@ ion-toolbar.navbar {
   margin: 4px 0 0 0;
   font-size: 0.9rem;
   color: #444;
-}
-
-
-
-.final-text {
-  text-align: center;
-  font-size: 0.95rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  color: #444;
-  padding: 0 8px;
 }
 
 .afiliate-button {

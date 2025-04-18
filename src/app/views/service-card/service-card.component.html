@@ -1,47 +1,33 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar class="navbar">
     <ion-buttons slot="start">
       <ion-button>
-        <ion-icon name="arrow-back"></ion-icon>
+        <ion-icon name="arrow-back" color="light"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Servicios</ion-title>
+    <ion-title class="header-title">Servicios</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-  <div class="grid">
-    <ion-card>
-    <img src="../../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" alt="Afiliación" />
-      <p>Salud</p>
-    </ion-card>
+  <div class="cards-grid">
+    <div class="card-row" *ngFor="let row of serviciosChunked">
+      <div class="card-wrapper" *ngFor="let servicio of row">
+        <ion-card class="custom-card" (click)="goToInfoServicio(servicio.id)">
+          <div class="image-container">
+            <img *ngIf="servicio.imagen1Url" [src]="servicio.imagen1Url" [alt]="servicio.titulo" />
+          </div>
+          <ion-card-content>
+            <h3 class="card-title">{{ servicio.titulo }}</h3>
+          </ion-card-content>
+        </ion-card>
 
-    <ion-card>
-    <img src="../../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" alt="Afiliación" />
-      <p>Seguros</p>
-    </ion-card>
-
-    <ion-card>
-    <img src="../../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" alt="Afiliación" />
-      <p>Financiación</p>
-    </ion-card>
-
-    <ion-card>
-    <img src="../../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" alt="Afiliación" />
-      <p class="highlight">Gabinete jurídico</p>
-    </ion-card>
-
-    <ion-card>
-    <img src="../../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" alt="Afiliación" />
-      <p>Formación</p>
-    </ion-card>
-
-    <ion-card>
-    <img src="../../../assets/icon/ilustracion-coleccion-medicos-enfermeras-dibujos-animados_23-2148920402.avif" alt="Afiliación" />
-      <p>Recreación</p>
-    </ion-card>
+      </div>
+    </div>
   </div>
 </ion-content>
+
 
 
 <ion-footer>
