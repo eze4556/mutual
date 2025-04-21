@@ -1,0 +1,68 @@
+.login-content {
+  --background: linear-gradient(to bottom, #cce9f9, #ffffff);
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  align-items: center;
+}
+
+.login-logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.login-input {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  --background: white;
+}
+
+.toggle-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.recover-link {
+  width: 100%;
+  max-width: 400px;
+  text-align: right;
+  font-size: 0.85rem;
+  color: #007aff;
+  margin-bottom: 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.login-button {
+  width: 100%;
+  max-width: 400px;
+  background-color: #007aff;
+  border-radius: 8px;
+}
+
+.register-section {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.register-link {
+  color: #007aff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.affiliate-button {
+  margin-top: 12px;
+  background-color: #7FB8DA;
+  color: white;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}

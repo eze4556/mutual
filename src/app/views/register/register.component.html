@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar class="navbar">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="arrow-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="header-title">Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- FORMULARIO -->
+  <div>
+    <form [formGroup]="registerForm">
+
+      <div class="section">
+        <h2>Datos del usuario</h2>
+
+        <ion-item>
+          <ion-label position="stacked">Nombre completo</ion-label>
+          <ion-input type="text" formControlName="nombre"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Confirmar contraseña</ion-label>
+          <ion-input type="password" formControlName="confirmarPassword"></ion-input>
+        </ion-item>
+
+        <!-- NUEVOS CAMPOS -->
+        <ion-item>
+          <ion-label position="stacked">DNI</ion-label>
+          <ion-input type="text" formControlName="dni"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Número de teléfono</ion-label>
+          <ion-input type="tel" formControlName="telefono"></ion-input>
+        </ion-item>
+
+      </div>
+
+      <ion-button expand="full" (click)="submitForm()" [disabled]="registerForm.invalid || isSubmitting">
+        Registrarse
+      </ion-button>
+
+      <ion-item *ngIf="isSubmitting">
+        <ion-label color="primary">Enviando datos...</ion-label>
+        <ion-spinner name="dots"></ion-spinner>
+      </ion-item>
+
+    </form>
+  </div>
+
+</ion-content>

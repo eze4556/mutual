@@ -31,6 +31,18 @@ export const routes: Routes = [
       loadComponent: () => import('./views/profile/profile.component').then((m) => m.ProfileComponent),
   },
   {
+    path: 'login',
+    loadComponent: () => import('./views/login/login.component').then((m) => m.LoginComponent),
+},
+{
+  path: 'registro',
+  loadComponent: () => import('./views/register/register.component').then((m) => m.RegisterComponent),
+},
+{
+  path: 'automotor',
+  loadComponent: () => import('./views/seguro-automotor/seguro-automotor.component').then((m) => m.SeguroAutomotorComponent),
+},
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
