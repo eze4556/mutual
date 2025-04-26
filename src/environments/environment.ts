@@ -13,8 +13,9 @@ export const environment = {
     storageBucket: "inawin-303e7.appspot.com",
     messagingSenderId: "910283475839",
     appId: "1:910283475839:web:382d619f50b6d79b9ae84a",
-    measurementId: "G-VM9ZSEMZK6"
-},
+    measurementId: "G-VM9ZSEMZK6",
+  },
+  apiUrl: "http://localhost:3000/api/"
 };
 /*
  * For easier debugging in development mode, you can import the following file

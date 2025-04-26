@@ -9,7 +9,7 @@
     Descarga el formulario correspondiente para afiliarte a la mutual u obra social.
   </p>
 
-  <ion-card >
+  <ion-card>
     <ion-card-content>
       <ion-icon name="handshake-outline" class="icon"></ion-icon>
       <ion-button expand="block" color="primary" fill="outline">
@@ -18,7 +18,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card >
+  <ion-card>
     <ion-card-content>
       <ion-icon name="handshake-outline" class="icon"></ion-icon>
       <ion-button expand="block" color="primary" fill="outline">
@@ -29,18 +29,39 @@
 
   <ion-item>
     <ion-label position="floating">DNI</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="dni" maxlength="8" pattern="[0-9]*" (input)="validateDNI()">
+    </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>Subir formulario</ion-label>
-    <ion-button slot="end">
+    <ion-button slot="end" (click)="triggerFileInput()">
       <ion-icon name="cloud-upload-outline"></ion-icon>
     </ion-button>
+    <!-- Archivo oculto -->
+    <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
   </ion-item>
 
-  <ion-button expand="block" color="primary">Continuar</ion-button>
+  <ion-item *ngIf="selectedFile">
+    <ion-label>Archivo seleccionado:</ion-label>
+    <p>{{ selectedFile.name }}</p>
+  </ion-item>
+
+  <!-- Mensaje de error -->
+  <ion-item *ngIf="errorMessage">
+    <ion-label color="danger">{{ errorMessage }}</ion-label>
+  </ion-item>
+
+  <!-- Mensaje de éxito -->
+  <ion-item *ngIf="successMessage">
+    <ion-label color="success">{{ successMessage }}</ion-label>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" [disabled]="!selectedFile" (click)="submitForm()">
+    Continuar
+  </ion-button>
 </ion-content>
+
 <ion-footer>
   <ion-tab-bar>
     <ion-tab-button tab="inicio">
