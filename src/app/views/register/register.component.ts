@@ -1,10 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {
-  IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent,
-  IonInput, IonButton, IonItem, IonLabel, IonSpinner,IonIcon
+  IonHeader,
+  IonToolbar,
+  IonButtons,
+  IonBackButton,
+  IonTitle,
+  IonContent,
+  IonInput,
+  IonButton,
+  IonItem,
+  IonLabel,
+  IonSpinner,
+  IonIcon,
+  IonText,
 } from '@ionic/angular/standalone';
+import { AuthService } from 'src/app/common/services/auth.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -12,17 +30,29 @@ import {
   styleUrls: ['./register.component.scss'],
   standalone: true,
   imports: [
+    IonText,
     CommonModule,
     ReactiveFormsModule,
-    IonHeader, IonToolbar, IonTitle, IonButtons, IonIcon,
-    IonContent, IonInput, IonButton, IonItem, IonLabel, IonSpinner
-  ]
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonButtons,
+    IonIcon,
+    IonContent,
+    IonInput,
+    IonButton,
+    IonItem,
+    IonLabel,
+    IonSpinner,
+  ],
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   isSubmitting = false;
+  successMessage = '';
+  errorMessage = '';
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -35,19 +65,50 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  submitForm() {
-    if (this.registerForm.valid) {
-      this.isSubmitting = true;
-      const formData = this.registerForm.value;
+  async submitForm() {
+    if (this.registerForm.invalid) {
+      return;
+    }
 
-      // Procesar el formulario...
-      console.log('Formulario enviado:', formData);
+    const password = this.registerForm.get('password')?.value;
+    const confirmarPassword = this.registerForm.get('confirmarPassword')?.value;
 
-      // Simulación de envío
-      setTimeout(() => {
-        this.isSubmitting = false;
-        this.registerForm.reset();
-      }, 2000);
+    if (password !== confirmarPassword) {
+      this.errorMessage = 'Las contraseñas no coinciden.';
+      this.successMessage = '';
+      return;
+    }
+
+    this.isSubmitting = true;
+
+    const formData = {
+      nombre_completo: this.registerForm.get('nombre')?.value,
+      email: this.registerForm.get('email')?.value,
+      password: password,
+      dni: this.registerForm.get('dni')?.value,
+      telefono: this.registerForm.get('telefono')?.value,
+    };
+
+    try {
+      const response = await firstValueFrom(
+        this.authService.register(formData)
+      );
+      console.log('Registro exitoso:', response);
+
+      this.successMessage = response?.message;
+      this.errorMessage = '';
+      this.registerForm.reset();
+    } catch (e: any) {
+      console.error('Error al registrar:', e);
+
+      if (e?.error?.message) {
+        this.errorMessage = e.error.message;
+      } else {
+        this.errorMessage = 'Ha ocurrido un error al subir el formulario';
+      }
+      this.successMessage = '';
+    } finally {
+      this.isSubmitting = false;
     }
   }
 }

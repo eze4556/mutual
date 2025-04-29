@@ -51,9 +51,20 @@
 
       </div>
 
+      <ion-text color="success" *ngIf="successMessage">
+        <p>{{ successMessage }}</p>
+      </ion-text>
+      
+      <ion-text color="danger" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </ion-text>
       <ion-button expand="full" (click)="submitForm()" [disabled]="registerForm.invalid || isSubmitting">
         Registrarse
       </ion-button>
+
+      <ion-text color="danger" *ngIf="registerForm.hasError('passwordsMismatch') && registerForm.touched">
+        <p>Las contraseñas no coinciden.</p>
+      </ion-text>
 
       <ion-item *ngIf="isSubmitting">
         <ion-label color="primary">Enviando datos...</ion-label>

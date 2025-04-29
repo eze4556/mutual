@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   IonHeader,
@@ -8,8 +8,6 @@ import {
   IonContent,
   IonButton,
   IonIcon,
-  IonButtons,
-  IonList,
   IonFooter,
   IonTabBar,
   IonTabButton,
@@ -18,7 +16,6 @@ import {
   IonCardContent,
   IonItem,
   IonInput,
-  IonText,
 } from '@ionic/angular/standalone';
 import { firstValueFrom } from 'rxjs';
 import { IoniconsModule } from 'src/app/common/modules/ionicons.module';
@@ -30,7 +27,6 @@ import { AfiliacionService } from 'src/app/common/services/afiliacion.service';
   styleUrls: ['./afiliacion.component.scss'],
   standalone: true,
   imports: [
-    IonText,
     IonInput,
     IonItem,
     IonCardContent,
@@ -42,8 +38,6 @@ import { AfiliacionService } from 'src/app/common/services/afiliacion.service';
     IonContent,
     IonButton,
     IonIcon,
-    IonButtons,
-    IonList,
     IonFooter,
     IonTabBar,
     IonTabButton,
@@ -67,10 +61,12 @@ export class AfiliacionComponent {
   }
 
   triggerFileInput() {
+    // Simula un click para pedir un archivo
     this.fileInput.nativeElement.click();
   }
 
   onFileSelected(event: Event) {
+    // Guarda el archivo en memoria
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
@@ -94,8 +90,8 @@ export class AfiliacionComponent {
       this.successMessage = '';
       return;
     }
-
     this.errorMessage = '';
+
     try {
       const res = await firstValueFrom(
         this.afiliacionService.subirFormulario(this.dni, this.selectedFile)
@@ -104,7 +100,6 @@ export class AfiliacionComponent {
       if (res?.message) {
         this.successMessage = res.message;
       }
-      console.log('Formulario subido con éxito:', res);
       this.errorMessage = '';
       this.selectedFile = null;
       this.dni = '';
@@ -113,7 +108,7 @@ export class AfiliacionComponent {
       if (e?.error?.message) {
         this.errorMessage = e.error.message;
       } else {
-        this.errorMessage = "Ha ocurrido un error al subir el formulario"
+        this.errorMessage = 'Ha ocurrido un error al subir el formulario';
       }
       this.successMessage = '';
       console.error('Error al subir el formulario:', e);
