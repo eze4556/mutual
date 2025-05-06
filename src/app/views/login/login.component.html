@@ -3,20 +3,34 @@
 
     <img src="../../assets/icon/sinfondo1.png" alt="Logo" class="login-logo" />
 
-    <ion-item lines="none" class="login-input">
-      <ion-label position="floating">Documento DNI</ion-label>
-      <ion-input type="number" placeholder="Ingrese su DNI"></ion-input>
-    </ion-item>
+    <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
 
-    <ion-item lines="none" class="login-input">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input [type]="showPassword ? 'text' : 'password'"></ion-input>
-      <ion-icon slot="end" [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePassword()" class="toggle-icon"></ion-icon>
-    </ion-item>
+      <ion-item lines="none" class="login-input">
+        <ion-label position="floating">Documento DNI</ion-label>
+        <ion-input type="text" placeholder="Ingrese su DNI" formControlName="dni">
+        </ion-input>
+      </ion-item>
 
-    <a class="recover-link" href="#">Recuperar contraseña</a>
+      <ion-item lines="none" class="login-input">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password">
+        </ion-input>
+        <ion-icon slot="end" [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePassword()" class="toggle-icon">
+        </ion-icon>
+      </ion-item>
 
-    <ion-button expand="block" class="login-button">Ingresar</ion-button>
+      <a class="recover-link" href="#">Recuperar contraseña</a>
+
+      <ion-button expand="block" class="login-button" type="submit" [disabled]="loginForm.invalid || isSubmitting">
+        Ingresar
+      </ion-button>
+
+      <ion-item *ngIf="isSubmitting">
+        <ion-label color="primary">Iniciando sesión...</ion-label>
+        <ion-spinner name="dots"></ion-spinner>
+      </ion-item>
+
+    </form>
 
     <div class="register-section">
       <p>¿Aún no tenés cuenta? <a class="register-link" href="#">Crea tu cuenta</a></p>

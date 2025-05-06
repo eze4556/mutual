@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Auth, signInWithEmailAndPassword, signOut, authState, UserCredential } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, signOut, authState, UserCredential, signInWithCustomToken } from '@angular/fire/auth';
 import { from, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<any>;
   private apiUrl = environment.apiUrl;
 
   constructor(
@@ -20,17 +19,20 @@ export class AuthService {
     return this.http.post(this.apiUrl + 'user/register', formData);
   }
 
-  login(email: string, password: string): Promise<UserCredential> {
+  loginWithFirebase(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
+  loginWithCustomToken(customToken: string) {
+    return from(signInWithCustomToken(this.auth, customToken));
+  }
+
+  getUserByDNI(dni: string): Observable<any> {
+    return this.http.get(this.apiUrl + 'user/profile/' + dni);
+  }
 
   logout(): Promise<void> {
     return signOut(this.auth);
-  }
-
-  getUser(): Observable<any> {
-    return this.user$;
   }
 }
 
